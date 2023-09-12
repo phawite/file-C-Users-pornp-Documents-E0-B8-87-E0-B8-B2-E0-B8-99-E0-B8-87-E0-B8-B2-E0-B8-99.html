@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>หน้าหลัก</title>
+</head>
+<body>
+    <header>
+        <h1>ยินดีต้อนรับสู่เว็บเพจของเรา</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">หน้าหลัก</a></li>
+            
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>เนื้อหาหลัก</h2>
+        <p>นี่คือเนื้อหาหลักของเว็บเพจของปลื้ม</p>
+    </main>
+    
+    <footer>
+        <p>&copy; เว็บเพจของปลื้ม</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกมตอบคำถาม</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<img src="e.jpg" alt=""style="width: 300px; height: 200px;">
+<body>
+    <div class="container">
+        <h1>เกมตอบคำถาม</h1>
+        <p id="question">คำถามจะปรากฏที่นี่</p>
+        <div id="options">
+            <button class="option" onclick="checkAnswer(this)">คำตอบ 1</button>
+            <button class="option" onclick="checkAnswer(this)">คำตอบ 2</button>
+            <button class="option" onclick="checkAnswer(this)">คำตอบ 3</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "นนทกโดนใครสาป?",
+                options: ["เทวดา", "พระอินทร์", "อิศวร", "นารายณ์"],
+                answer: "นารายณ์"
+            },
+            {
+                question: "นนทกโดนแกล้งอะไร",
+                options: ["รุมเกย์", "ดึงผม ตบหัว", "โดนเสียบ", "โดนย่ำกระหม่อม"],
+                answer: "ดึงผม ตบหัว"
+            },
+            {
+                question: "ใครแต่งรามเกียรติ์",
+                options: ["แม่ปลา", "ครูบอม", "พระบาทสมเด็จพระพุทธยอดฟ้าจุฬาโลกมหาราช", "ครูอานิสา"],
+                answer: "พระบาทสมเด็จพระพุทธยอดฟ้าจุฬาโลกมหาราช"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const resultElement = document.getElementById("result");
+
+            questionElement.textContent = questions[currentQuestionIndex].question;
+            optionsElement.innerHTML = "";
+
+            questions[currentQuestionIndex].options.forEach((option, index) => {
+                const optionButton = document.createElement("button");
+                optionButton.classList.add("option");
+                optionButton.textContent = option;
+                optionButton.setAttribute("onclick", "checkAnswer(this)");
+                optionsElement.appendChild(optionButton);
+            });
+
+            resultElement.textContent = "";
+        }
+
+        function checkAnswer(selectedOption) {
+            const selectedAnswer = selectedOption.textContent;
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            const resultElement = document.getElementById("result");
+
+            if (selectedAnswer === correctAnswer) {
+                resultElement.textContent = "คำตอบถูกต้อง!";
+            } else {
+                resultElement.textContent = `คำตอบไม่ถูกต้อง คำตอบที่ถูกต้องคือ: ${correctAnswer}`;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(displayQuestion, 1000);
+            } else {
+                resultElement.textContent = "สิ้นสุดเกม";
+            }
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>
+
+<img src="er.jpg" alt="รูปภาพที่แสดงสัญลักษณ์ของเว็บไซต์" style="width: 200px; height: 150px;">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บเพจด้วยสีพื้นหลัง</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- เนื้อหาหน้าเว็บ -->
+</body>
+</html>
+
